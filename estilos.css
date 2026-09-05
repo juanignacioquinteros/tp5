@@ -1,0 +1,241 @@
+/* =========================================
+   RUTAS AR — Guía de Viajes (versión simple)
+   ========================================= */
+:root {
+  --color-primario: #0F5257;
+  --color-primario-claro: #2E6E73;
+  --color-acento: #D96C4A;
+  --color-secundario: #E8C07D;
+  --color-fondo: #FBF5EC;
+  --color-texto: #243B3D;
+  --color-visitado: hsl(174, 20%, 45%);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Verdana, sans-serif;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Encabezado y menú (igual en todas las páginas) ---------- */
+header {
+  background-color: var(--color-fondo);
+  border-bottom: 3px solid var(--color-primario);
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo-link img { width: 56px; height: 56px; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+nav a:link, nav a:visited {
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+  text-decoration: underline;
+}
+
+nav a:active {
+  background-color: var(--color-acento);
+  color: #fff;
+}
+
+/* "Usted está aquí" */
+nav a.activo {
+  background-color: var(--color-primario);
+  color: #fff !important;
+}
+
+/* ---------- Enlaces generales ---------- */
+a:link { color: var(--color-primario); }
+a:visited { color: var(--color-visitado); }
+a:hover { color: var(--color-acento); text-decoration: underline; }
+a:active { color: #A8422A; }
+
+/* Botón simulado */
+.boton {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  margin-top: 1rem;
+  background-color: var(--color-acento);
+  color: #ffffff !important;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+
+.boton:hover { background-color: #C25836; }
+.boton:active { background-color: #9A4127; }
+
+/* ---------- Estructura ---------- */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid #dcd2c0;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+h1 { font-size: 2.1rem; color: var(--color-primario); margin-bottom: 0.4rem; }
+h2 {
+  font-size: 1.4rem;
+  color: var(--color-primario-claro);
+  border-bottom: 2px solid var(--color-secundario);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+h3 { font-size: 1.1rem; color: var(--color-acento); margin-bottom: 0.3rem; }
+
+.hero {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-primario-claro));
+  color: #fff;
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero h1 { color: #fff; }
+
+/* Tarjetas de destinos (sin imágenes, con color) */
+.grid-destinos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.tarjeta {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #dcd2c0;
+}
+
+.tarjeta-color {
+  height: 90px;
+}
+
+.tarjeta-contenido { padding: 1rem; background-color: var(--color-fondo); }
+
+.bg-1 { background-color: #0F5257; }
+.bg-2 { background-color: #3E8E6E; }
+.bg-3 { background-color: #8C9A5B; }
+
+/* ---------- Pie de página ---------- */
+footer {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+footer a:link, footer a:visited { color: var(--color-secundario); }
+footer a:hover { color: #ffffff; }
+
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.contacto-info { display: flex; gap: 2rem; flex-wrap: wrap; }
+.contacto-info > div { flex: 1; min-width: 220px; }
+
+/* ---------- Tabla de impacto (TP5) ---------- */
+.tabla-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  color: var(--color-primario-claro);
+  margin-bottom: 0.6rem;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #dcd2c0;
+  text-align: center;
+}
+
+/* Jerarquía visual: encabezados distintos de los datos */
+thead th {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+tbody td:first-child {
+  font-weight: bold;
+  color: var(--color-primario);
+  text-align: left;
+}
+
+/* Cebra: filas alternas */
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-fondo);
+}
+
+/* Feedback visual al pasar el mouse por una fila */
+tbody tr:hover {
+  background-color: var(--color-secundario);
+}
+
+tfoot td {
+  background-color: var(--color-primario-claro);
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  header { flex-direction: column; align-items: flex-start; }
+}
